@@ -50,11 +50,7 @@ echo "*          soft     core          unlimited
 sudo sysctl -w fs.file-max=6816768
 sudo sysctl -p
 
-#Adding User 
-sudo su - hduser  
-ssh-keygen -t rsa -P "" -f ~/.ssh/id_rsa  
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys  
-
+#Adding User  
 
 read -p “Please Enter the Groupname : “ group
   if [ "$group_present" == "1" ]; then
