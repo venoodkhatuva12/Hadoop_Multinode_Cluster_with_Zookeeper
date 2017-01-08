@@ -12,8 +12,7 @@ sed -i '2 i HOSTNAME="$hostname"' /etc/sysconfig/network
 # insert/update hosts entry
 read -p "Please enter IP Address (Private/Public)? :" ip_address
 read -p "Please enter Public domain or host name? :" host_name
-ip_address="192.168.x.x"
-host_name="my.hostname.example.com"
+
 # find existing instances in the host file and save the line numbers
 matches_in_hosts="$(grep -n $host_name /etc/hosts | cut -f1 -d:)"
 host_entry="${ip_address} ${host_name}"
