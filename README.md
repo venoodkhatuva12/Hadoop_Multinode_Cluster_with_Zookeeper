@@ -1,2 +1,7 @@
 # Hadoop-Multinode-Cluster-with-Zookeeper
-Since manual failover mechanism was unable to automatically trigger a failover in cases of namenode failure, automatic failover mechanism made sure to provide a hot backup during a failover. This was overcome by zookeeper. We have already covered zookeeper installation &amp; configuration in my previous post. To configure an automatic failover ha cluster we need more than one odd number of nodes to ensure that always a majority of zookeeper servers are running in case of any namenode failure. We also need a running zookeeper ensemble..
+
+Hadoop installation & configuration includes user settings, java installation, passwordless ssh configuration and lastly, hadoop installation and configuration.
+
+Fully distributed mode cluster setup of automatic failover HA in an ESXi server. We ll installed hadoop 2 in all nodes on CentOS 6.5 release. This setup consists of three namenodes, two datanodes and one client machine. 
+
+I ll make this scripts in 
