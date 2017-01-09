@@ -1,4 +1,8 @@
 #!/bin/bash
+#Script for zookeeper for HA Hadoop installtion
+#Author: Vinod.N K
+#Usage: Hadoop Zookeeper JDK8
+#Distro : Linux -Centos, Rhel, and any fedora
 #Check whether hduser user is running the script
 while [ $USER  != "hduser" ]
 do
@@ -45,7 +49,6 @@ sudo tar -zxvf zookeeper-3.4.9.tar.gz
 sudo mv zookeeper-3.4.9 zookeeper
 sudo rm -rf zookeeper-3.4.9.tar.gz
 
-sudo chown -R hduser:hadoop /apps
 echo "Lets configure Zookeeper setting and add some server in Zookeeper Quorum"
 
 read -p "what is the data directory where the snapshot is stored? : " data_dir
@@ -53,7 +56,7 @@ read -p "What is the public or hostname of 1st server for zookeeper quorum? :" s
 read -p "What is the public or hostname of 2nd server for zookeeper quorum? :" server2
 read -p "What is the public or hostname of 3rd server for zookeeper quorum? :" server3
 
-echo "tickTime=2000
+sudo echo "tickTime=2000
 dataDir=$data_dir
 clientPort=2181
 initLimit=5
@@ -66,7 +69,6 @@ sudo mkdir $data_dir
 read -p "what is the server id? : " srvid
 
 sudo echo "$srvid" >> $data_dir/myid
-
-
 sudo chown -R hduser:hadoop /apps
+
 zkServer.sh start
