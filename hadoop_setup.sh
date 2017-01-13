@@ -1,7 +1,7 @@
 #!/bin/bash
 #Script Final Setup for HA Hadoop installtion
 #Author: Vinod.N K
-#Usage: Hadoop Zookeeper JDK8
+#Usage: Hadoop 2.6.5
 #Distro : Linux -Centos, Rhel, and any fedora
 #Check whether hduser user is running the script
 while [ $USER  != "hduser" ]
@@ -10,11 +10,7 @@ do
         exit 1
 done
 
-#Passwordless SSH Configuration before that you  need to add all the server of this cluster and master in one file along with user like below...
-# location of file /tmp/destfile
-# hduser@public_ip
-# hduser@public_ip and so on...
-#
+#Passwordless SSH Configuration before that you need to add all the server of this cluster and master in one file along with user like below...
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config && sudo /etc/init.d/sshd restart
 sudo mkdir /home/hduser/.ssh
 sudo chmod -R 700 /home/hduser/.ssh/
