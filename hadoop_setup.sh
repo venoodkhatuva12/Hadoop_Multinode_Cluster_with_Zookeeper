@@ -15,6 +15,7 @@ done
 # hduser@public_ip
 # hduser@public_ip and so on... 
 #
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config && sudo /etc/init.d/sshd restart
 sudo mkdir /home/hduser/.ssh
 sudo chmod -R 700 /home/hduser/.ssh/
 sudo chown -R hduser:hadoop /home/hduser/.ssh/
