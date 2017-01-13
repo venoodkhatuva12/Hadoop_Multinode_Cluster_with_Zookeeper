@@ -65,4 +65,4 @@ sudo echo "$srvid" >> $data_dir/myid
 sudo rm -rf /apps/zookeeper-3.4.9.tar.gz
 
 zkServer.sh start
-sudo chown -R hduser:hadoop /apps && sudo chown -R 755 /apps
+sudo chown -R hduser:hadoop /apps && sudo chmod -R 755 /apps
