@@ -26,24 +26,27 @@ matches_in_hosts="$(grep -n $host_name /etc/hosts | cut -f1 -d:)"
 host_entry="$ip_address $hostna $host_name"
 echo "Please enter your password if requested."
 
-if [ "$matches_in_hosts -ge 1" ]
-then
+if [[ $matches_in_hosts -ge 1 ]];then
     echo "Host present in hostfile"
 else
     echo "Adding new hosts entry."
-    echo "$host_entry" | sudo tee -a /etc/hosts > /dev/null
-
+    echo "$host_entry" >> /etc/hosts
 fi
-
-read -p "Do you want to add more hosts in hostsfile (Yes/No)? : " answer
-if [ "$answer" = yes ]
-then
-   echo "run the script again"
-fi
+read -p "Do you want to add more hosts in hostsfile (Yes/No)? :" answer
+if [[ $answer =~ ^([nN][oO]|[nN])$ ]]; then
+        echo -e "\nMoving on !!"
+  else
+        if [[ $answer =~ ^([yY][eE][sS]|[yY])$ ]]
+        then
+        echo "run the script again"
+        fi
+  fi
 done
 
 #Setting up ulimit to max
-sed -i /# End of file/d /etc/security/limits.conf
+
+sed -i '/# End of file/d' /etc/security/limits.conf
+
 echo "*          soft     core          unlimited
 *          hard     core          unlimited
 *          soft     nproc          65535
@@ -92,6 +95,4 @@ sudoers_present="`cat /etc/sudoers | grep $user | grep -v grep | wc -l`"
        	    exit
        	fi
   fi
-
-
-  
+echo "Thanks for using all worked properly & now please reboot for changes to take place..."
