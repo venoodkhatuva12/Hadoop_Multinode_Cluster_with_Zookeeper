@@ -35,7 +35,7 @@ java_present="`ls /apps |grep java8 |wc -l`"
        	echo -e "\n Java already present No need to install .. "
   else
 
-      echo -e "\n Please refer my previous scripts.." && exit
+      echo -e "\n Please follow this link >> https://github.com/venoodkhatuva12/Hadoop-Multinode-Cluster-with-Zookeeper/blob/master/zookeeper.sh" && exit
 
   fi
 sleep 3
