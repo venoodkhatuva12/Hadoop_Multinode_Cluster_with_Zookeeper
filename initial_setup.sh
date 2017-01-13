@@ -23,7 +23,7 @@ read -p "Enter Public domain or Host name? :" host_name
 read -p "Enter the hostname of $ip_address? :" hostna
 
 matches_in_hosts="$(grep -n $host_name /etc/hosts | cut -f1 -d:)"
-host_entry="$ip_address $hostna $host_name"
+host_entry="$ip_address $host_name $hostna"
 echo "Please enter your password if requested."
 
 if [[ $matches_in_hosts -ge 1 ]];then
