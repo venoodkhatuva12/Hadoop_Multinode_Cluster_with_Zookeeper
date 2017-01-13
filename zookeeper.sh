@@ -30,7 +30,7 @@ sudo chown hduser:hadoop /etc/profile.d/
 sudo echo '#JAVA Path Setting
 export JAVA_HOME=/apps/java8
 export JRE_HOME=/apps/java8/jre
-export PATH=$PATH:$JAVA_HOME/bin/java8:$JRE_HOME/bin
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 #Zookeeper Path Setting
 export ZOOKEEPER_HOME=/apps/zookeeper
 export PATH=$PATH:/apps/zookeeper/bin' >> /etc/profile.d/hadoop_path.sh
